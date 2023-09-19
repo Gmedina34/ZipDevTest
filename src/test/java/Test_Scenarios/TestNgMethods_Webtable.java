@@ -17,7 +17,7 @@ public class TestNgMethods_Webtable {
 	WebDriver driver;
 
 	@BeforeTest
-	public void beforeTest() throws InterruptedException {
+	public void beforeTest()  {
 
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();

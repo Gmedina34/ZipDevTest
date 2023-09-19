@@ -1,6 +1,5 @@
 package Test_Pages;
 
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -10,16 +9,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-
 public class DataTableSelection {
 
 	WebDriver driver;
-	
-	
+
 	public DataTableSelection(WebDriver driver) {
 
 		this.driver = driver;
 	}
+	
+	
 
 	By targetTable = By.cssSelector("div:nth-child(6) > div:nth-child(2)");
 

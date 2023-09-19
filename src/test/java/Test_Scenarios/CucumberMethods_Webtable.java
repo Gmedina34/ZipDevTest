@@ -1,45 +1,47 @@
 package Test_Scenarios;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import Test_Pages.DataTableSelection;
+
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CucumberMethods_Webtable {
-	
-	WebDriver driver;
 
-	DataTableSelection obj;
+	private WebDriver driver;
+	private DataTableSelection dataTableSelection;
 
-	@Given("I navigate to the URL {string}")
-	public void i_navigate_to_the_url(String string) {
+	@Before
+	public void setUp() {
 
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-
 		driver.manage().window().maximize();
 
-		driver.get(string);
-		
-		 obj = new DataTableSelection(driver);
+		dataTableSelection = new DataTableSelection(driver);
 
+	}
+
+	@Given("I navigate to the URL {string}")
+	public void i_navigate_to_the_url(String url) {
+		driver.get(url);
 	}
 
 	@Given("I locate the table with checkbox section")
 	public void i_locate_the_table_with_checkbox_section() {
-
-		obj.targetTable();
-
+		dataTableSelection.targetTable();
 	}
 
 	@When("I select the checkbox for the row with the {string} {string}")
-	public void i_select_the_checkbox_for_the_row_with_the(String string1, String string2) {
-
-		obj.Actions(string1, string2);
+	public void i_select_the_checkbox_for_the_row_with_the(String column, String value) {
+		dataTableSelection.Actions(column, value);
 	}
 
 	@Then("I close the web browser")
@@ -50,6 +52,5 @@ public class CucumberMethods_Webtable {
 
 		driver.quit();
 	}
-
 
 }
