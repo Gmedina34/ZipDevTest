@@ -107,10 +107,7 @@ public class DataTableSelection {
 								+ targetIndex + ")>td:nth-child(1)"));
 				checkbox.click();
 
-			//ebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-				
-				//wait.until(ExpectedConditions.not(ExpectedConditions.stalenessOf(checkbox)));
-
+			
 				break;
 
 			}
